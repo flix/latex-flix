@@ -9,6 +9,7 @@
 \definecolor{keyword-color}{RGB}{155, 70, 147}
 \definecolor{type-color}{RGB}{72, 118, 158}
 \definecolor{comment-color}{RGB}{55, 55, 55}
+\definecolor{string-color}{RGB}{30, 126, 19}
 
 \lstdefinelanguage{flix}{
   basicstyle        = \ttfamily\footnotesize\color{code-color},
@@ -16,6 +17,7 @@
   keywordstyle      = \color{keyword-color}\bfseries,
   commentstyle      = \color{comment-color},
   identifierstyle   = \color{black},
+  stringstyle       = \color{string-color},
   emph              = [1]{Unit, Bool, Char, Float32, Float64, Int8, Int16, Int32, Int64, String},
   emphstyle         = [1]{\color{type-color}},
   showspaces        = false,
