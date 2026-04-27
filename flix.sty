@@ -7,6 +7,7 @@
 \definecolor{linenumber-color}{RGB}{170, 170, 170}
 \definecolor{code-color}{RGB}{0, 0, 0}
 \definecolor{keyword-color}{RGB}{155, 70, 147}
+\definecolor{effect-keyword-color}{RGB}{0, 116, 102}
 \definecolor{type-color}{RGB}{72, 118, 158}
 \definecolor{comment-color}{RGB}{55, 55, 55}
 \definecolor{string-color}{RGB}{30, 126, 19}
@@ -14,7 +15,8 @@
 \lstdefinelanguage{flix}{
   basicstyle        = \ttfamily\footnotesize\color{code-color},
   numberstyle       = \footnotesize\color{linenumber-color},
-  keywordstyle      = \color{keyword-color}\bfseries,
+  keywordstyle      = [1]\color{keyword-color}\bfseries,
+  keywordstyle      = [2]\color{effect-keyword-color}\bfseries,
   commentstyle      = \color{comment-color},
   identifierstyle   = \color{black},
   stringstyle       = \color{string-color},
@@ -30,7 +32,7 @@
   morestring        = [b]",
   morestring        = [b]',
   morestring        = [b]""",
-  morekeywords      = {
+  morekeywords      = [1]{
     alias,
     and,
     as,
@@ -110,5 +112,22 @@
     xor,
     xvar,
     yield
+  },
+  morekeywords      = [2]{
+    Channel,
+    Clock,
+    Console,
+    Env,
+    Exec,
+    File,
+    Fs,
+    Http,
+    IO,
+    Logger,
+    NonDet,
+    Random,
+    Stderr,
+    Stdin,
+    Stdout
   },
 }
