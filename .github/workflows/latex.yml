@@ -1,0 +1,22 @@
+name: LaTeX
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    name: Compile example
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Compile example
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: example.tex
