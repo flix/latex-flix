@@ -108,7 +108,7 @@ def printDate(d: Date): Unit \ IO =
 
 \begin{lstlisting}
 /// Flix has built-in literal syntax for the standard collections.
-def literals(): (List[Int32], Set[Int32], Map[String, Int32], Vector[Int32], Array[Int32, Static]) =
+def literals(): (List[Int32], Set[Int32], Map[String, Int32], Vector[Int32], Array[Int32, Static]) \ IO =
     let xs  = List#{1, 2, 3};
     let ys  = Set#{1, 2, 3};
     let env = Map#{"min" => 0, "max" => 100};
@@ -128,11 +128,11 @@ restrictable enum Color[s] {
 
 /// xvar constructs extensible variants and ematch deconstructs them.
 def describeColor(): String =
-    let tag = xvar Color.Red;
+    let tag = xvar Red;
     ematch tag {
-        case Color.Red   => "red"
-        case Color.Blue  => "blue"
-        case Color.Green => "green"
+        case Red   => "red"
+        case Blue  => "blue"
+        case Green => "green"
     }
 
 /// psolve computes a provenance model and pquery extracts one explanation.
@@ -169,6 +169,12 @@ def mkWrappedObject(): Object \ IO =
 \section{Effect Handler}
 
 \begin{lstlisting}
+use Net.Http
+use Net.HttpResponse
+use Net.Retry
+use Time.Clock
+use Time.Duration.{milliseconds, seconds}
+
 def main(): Unit \ { Clock, Http, Logger, IO } =
     let defaultHeaders = Map#{
         "Accept"        => List#{"application/json"},
